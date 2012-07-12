@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Beginning
+# with version 1.8 this is the preferred way to supply information about a
+# plugin. The current method of embedding metadata in __init__.py will
+# be supported until version 2.0
+
+# This file should be included when you package your plugin.
+
+# Mandatory items:
+
+
+[general]
+name=Affine Transformations
+qgisMinimumVersion=1.0
+description=Apply affine transformations to selected geometries.
+version=0.4.2
+
+# end of mandatory metadata
+
+# Optional items:
+
+# Uncomment the following line and add your changelog entries:
+changelog=Removed the auto commit as sugested and improved compliance with QGIS' metadata system.
+
+# tags are comma separated with spaces allowed
+tags=
+
+homepage=mapeandoobrasil.blogspot.com
+tracker=
+repository=
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version
+deprecated=False
+
+# Author contact information
+author=Mauricio de Paulo
+email=mauricio.dev@gmail.com
