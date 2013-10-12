@@ -12,7 +12,7 @@
   <property name="windowTitle" >
    <string>Vector Affine Transformation</string>
   </property>
-  <widget class="QLabel" name="label" >
+  <widget class="QLabel" name="labelLayer" >
    <property name="geometry" >
     <rect>
      <x>10</x>
@@ -25,7 +25,7 @@
     <string>Layer:</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox" >
+  <widget class="QComboBox" name="comboBoxLayer" >
    <property name="geometry" >
     <rect>
      <x>90</x>
@@ -35,7 +35,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox" >
+  <widget class="QGroupBox" name="groupBoxParameters" >
    <property name="geometry" >
     <rect>
      <x>10</x>
@@ -47,7 +47,7 @@
    <property name="title" >
     <string>Affine Parameters</string>
    </property>
-   <widget class="QLineEdit" name="lineEdit_5" >
+   <widget class="QLineEdit" name="lineEditTx" >
     <property name="geometry" >
      <rect>
       <x>90</x>
@@ -60,7 +60,7 @@
      <string>0</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3" >
+   <widget class="QLineEdit" name="lineEditC" >
     <property name="geometry" >
      <rect>
       <x>90</x>
@@ -73,7 +73,7 @@
      <string>0</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7" >
+   <widget class="QLabel" name="labelB" >
     <property name="geometry" >
      <rect>
       <x>170</x>
@@ -86,7 +86,7 @@
      <string>Rotation Y</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5" >
+   <widget class="QLabel" name="labelD" >
     <property name="geometry" >
      <rect>
       <x>170</x>
@@ -99,7 +99,7 @@
      <string>Scale Y</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8" >
+   <widget class="QLabel" name="labelTx" >
     <property name="geometry" >
      <rect>
       <x>10</x>
@@ -112,7 +112,7 @@
      <string>Translation X</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6" >
+   <widget class="QLabel" name="labelC" >
     <property name="geometry" >
      <rect>
       <x>10</x>
@@ -125,7 +125,7 @@
      <string>Rotation X</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4" >
+   <widget class="QLabel" name="labelA" >
     <property name="geometry" >
      <rect>
       <x>10</x>
@@ -138,7 +138,7 @@
      <string>Scale X</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_9" >
+   <widget class="QLabel" name="labelTy" >
     <property name="geometry" >
      <rect>
       <x>170</x>
@@ -151,7 +151,7 @@
      <string>Translation Y</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit" >
+   <widget class="QLineEdit" name="lineEditA" >
     <property name="geometry" >
      <rect>
       <x>90</x>
@@ -164,7 +164,7 @@
      <string>1</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2" >
+   <widget class="QLineEdit" name="lineEditD" >
     <property name="geometry" >
      <rect>
       <x>250</x>
@@ -177,7 +177,7 @@
      <string>1</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_6" >
+   <widget class="QLineEdit" name="lineEditTy" >
     <property name="geometry" >
      <rect>
       <x>250</x>
@@ -190,7 +190,7 @@
      <string>0</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4" >
+   <widget class="QLineEdit" name="lineEditB" >
     <property name="geometry" >
      <rect>
       <x>250</x>
@@ -204,7 +204,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QRadioButton" name="radioButton" >
+  <widget class="QRadioButton" name="radioButtonSelectedFeatures" >
    <property name="geometry" >
     <rect>
      <x>10</x>
@@ -220,7 +220,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_2" >
+  <widget class="QRadioButton" name="radioButtonWholeLayer" >
    <property name="geometry" >
     <rect>
      <x>10</x>
@@ -236,7 +236,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton" >
+  <widget class="QPushButton" name="pushButtonRun" >
    <property name="geometry" >
     <rect>
      <x>90</x>
@@ -249,7 +249,7 @@
     <string>Run</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2" >
+  <widget class="QPushButton" name="pushButtonUndo" >
    <property name="geometry" >
     <rect>
      <x>170</x>
@@ -264,15 +264,15 @@
   </widget>
  </widget>
  <tabstops>
-  <tabstop>comboBox</tabstop>
-  <tabstop>radioButton</tabstop>
-  <tabstop>radioButton_2</tabstop>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>lineEdit_5</tabstop>
-  <tabstop>lineEdit_2</tabstop>
-  <tabstop>lineEdit_4</tabstop>
-  <tabstop>lineEdit_6</tabstop>
+  <tabstop>comboBoxLayer</tabstop>
+  <tabstop>radioButtonSelectedFeatures</tabstop>
+  <tabstop>radioButtonWholeLayer</tabstop>
+  <tabstop>lineEditA</tabstop>
+  <tabstop>lineEditC</tabstop>
+  <tabstop>lineEditTx</tabstop>
+  <tabstop>lineEditD</tabstop>
+  <tabstop>lineEditB</tabstop>
+  <tabstop>lineEditTy</tabstop>
  </tabstops>
  <resources/>
  <connections/>

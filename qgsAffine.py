@@ -35,8 +35,8 @@ class qgsAffine(QDialog, Ui_ui):
         
         
         #INSERT EVERY SIGNAL CONECTION HERE!
-        QObject.connect(self.pushButton,SIGNAL("clicked()"),self.affine)
-        QObject.connect(self.pushButton_2,SIGNAL("clicked()"),self.undo)
+        QObject.connect(self.pushButtonRun,SIGNAL("clicked()"),self.affine)
+        QObject.connect(self.pushButtonUndo,SIGNAL("clicked()"),self.undo)
 
 
     def unload(self):
@@ -51,9 +51,9 @@ class qgsAffine(QDialog, Ui_ui):
     def run(self):
         # create and show a configuration dialog or something similar
         flags = Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMaximizeButtonHint  # QgisGui.ModalDialogFlags
-        self.comboBox.clear()
+        self.comboBoxLayer.clear()
         for item in self.listlayers(0):
-            self.comboBox.addItem(item)
+            self.comboBoxLayer.addItem(item)
         
         self.show()
     
@@ -72,23 +72,32 @@ class qgsAffine(QDialog, Ui_ui):
                 return layer
     #Now these are the SLOTS
     def affine(self):
-        self.a=float(self.lineEdit.text())
-        self.b=float(self.lineEdit_4.text())
-        self.c=float(self.lineEdit_5.text())
-        self.d=float(self.lineEdit_3.text())
-        self.e=float(self.lineEdit_2.text())
-        self.f=float(self.lineEdit_6.text())
+        self.a=float(self.lineEditA.text())
+        self.b=float(self.lineEditB.text())
+        self.tx=float(self.lineEditTx.text())
+        self.c=float(self.lineEditC.text())
+        self.d=float(self.lineEditD.text())
+        self.ty=float(self.lineEditTy.text())
         self.doaffine()
         
     def undo(self):
         try:
-            #print self.a, self.b, self.c,self.d,self.e,self.f
-            self.a=1/self.a
-            self.b=-self.b
-            self.c=-self.c
-            self.d=-self.d
-            self.e=1/self.e
-            self.f=-self.f
+            # matrix form: x' = A x + b
+            # --> x = A^-1 x' - A^-1 b
+            # A^-1 = [d -b; -c a] / det A
+            # only valid if det A = a d - b c != 0
+            det = self.a*self.d - self.b*self.c
+            if not det:
+                print "Transformation is not invertable"
+                return
+            self.a=self.d/det
+            self.b=-self.b/det
+            self.c=-self.c/det
+            self.d=self.a/det
+            tx=self.tx
+            ty=self.ty
+            self.tx=self.a*tx+self.b*ty
+            self.ty=self.c*tx+self.d*ty
             #print "ok"
             self.doaffine()
         except:
@@ -96,7 +105,7 @@ class qgsAffine(QDialog, Ui_ui):
     
     def doaffine(self):
 	warn=QgsMessageViewer()
-        vlayer=self.getLayerByName(self.comboBox.currentText())
+        vlayer=self.getLayerByName(self.comboBoxLayer.currentText())
         if (self.radioButton_2.isChecked()):
             vlayer.removeSelection()
             vlayer.invertSelection()
@@ -120,8 +129,11 @@ class qgsAffine(QDialog, Ui_ui):
 		i=start
 		vertex=result[fid].vertexAt(i)
 		while (vertex!=QgsPoint(0,0)):
-		    newx=self.a*vertex.x()+self.b*vertex.y()+self.c
-		    newy=self.d*vertex.x()+self.e*vertex.y()+self.f
+                    # matrix form: x' = A x + b
+                    # x' = a x + b y + tx
+                    # y' = c x + d y + ty
+		    newx=self.a*vertex.x()+self.b*vertex.y()+self.tx
+		    newy=self.c*vertex.x()+self.d*vertex.y()+self.ty
 		    #geom.
 		    #print vertex.x(), vertex.y(), newx, newy
 		    vlayer.moveVertex(newx,newy,fid,i)
