@@ -87,8 +87,10 @@ class qgsAffine(QDialog, Ui_ui):
             # A^-1 = [d -b; -c a] / det A
             # only valid if det A = a d - b c != 0
             det = self.a*self.d - self.b*self.c
-            if not det:
-                print "Transformation is not invertable"
+            if det == 0:
+                warn=QgsMessageViewer()
+                warn.setMessageAsPlainText("Transformation is not invertable.")
+                warn.showMessage()
                 return
             a=self.d/det
             b=-self.b/det
