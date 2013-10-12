@@ -36,7 +36,7 @@ class qgsAffine(QDialog, Ui_ui):
         
         #INSERT EVERY SIGNAL CONECTION HERE!
         QObject.connect(self.pushButtonRun,SIGNAL("clicked()"),self.affine)
-        QObject.connect(self.pushButtonUndo,SIGNAL("clicked()"),self.undo)
+        QObject.connect(self.pushButtonInvert,SIGNAL("clicked()"),self.invert)
 
 
     def unload(self):
@@ -80,7 +80,7 @@ class qgsAffine(QDialog, Ui_ui):
         self.ty=float(self.lineEditTy.text())
         self.doaffine()
         
-    def undo(self):
+    def invert(self):
         try:
             # matrix form: x' = A x + b
             # --> x = A^-1 x' - A^-1 b
@@ -90,18 +90,22 @@ class qgsAffine(QDialog, Ui_ui):
             if not det:
                 print "Transformation is not invertable"
                 return
-            self.a=self.d/det
-            self.b=-self.b/det
-            self.c=-self.c/det
-            self.d=self.a/det
-            tx=self.tx
-            ty=self.ty
-            self.tx=self.a*tx+self.b*ty
-            self.ty=self.c*tx+self.d*ty
+            a=self.d/det
+            b=-self.b/det
+            c=-self.c/det
+            d=self.a/det
+            tx=-a*self.tx-b*self.ty
+            ty=-c*self.tx-d*self.ty
+            self.lineEditA.setText(str(a))
+            self.lineEditB.setText(str(b))
+            self.lineEditC.setText(str(c))
+            self.lineEditD.setText(str(d))
+            self.lineEditTx.setText(str(tx))
+            self.lineEditTy.setText(str(ty))
+            self.affine()
             #print "ok"
-            self.doaffine()
         except:
-            print "Nothing to undo"
+            print "Nothing to invert"
     
     def doaffine(self):
 	warn=QgsMessageViewer()
@@ -124,7 +128,8 @@ class qgsAffine(QDialog, Ui_ui):
 	else:
 	    for fid in featids:
 		features[fid]=QgsFeature()
-		vlayer.featureAtId(fid,features[fid])
+                if not vlayer.getFeatures( QgsFeatureRequest().setFilterFid( fid ) ).nextFeature( features[fid] ):
+                    continue;
 		result[fid]=features[fid].geometry()
 		i=start
 		vertex=result[fid].vertexAt(i)

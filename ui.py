@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Sat Oct 12 15:23:32 2013
-#      by: PyQt4 UI code generator 4.10.2
+# Created: Sat Oct 12 16:42:08 2013
+#      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,16 +12,7 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    def _fromUtf8(s):
-        return s
-
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+    _fromUtf8 = lambda s: s
 
 class Ui_ui(object):
     def setupUi(self, ui):
@@ -83,9 +74,9 @@ class Ui_ui(object):
         self.pushButtonRun = QtGui.QPushButton(ui)
         self.pushButtonRun.setGeometry(QtCore.QRect(90, 220, 75, 28))
         self.pushButtonRun.setObjectName(_fromUtf8("pushButtonRun"))
-        self.pushButtonUndo = QtGui.QPushButton(ui)
-        self.pushButtonUndo.setGeometry(QtCore.QRect(170, 220, 75, 28))
-        self.pushButtonUndo.setObjectName(_fromUtf8("pushButtonUndo"))
+        self.pushButtonInvert = QtGui.QPushButton(ui)
+        self.pushButtonInvert.setGeometry(QtCore.QRect(170, 220, 75, 28))
+        self.pushButtonInvert.setObjectName(_fromUtf8("pushButtonInvert"))
 
         self.retranslateUi(ui)
         QtCore.QMetaObject.connectSlotsByName(ui)
@@ -99,25 +90,25 @@ class Ui_ui(object):
         ui.setTabOrder(self.lineEditB, self.lineEditTy)
 
     def retranslateUi(self, ui):
-        ui.setWindowTitle(_translate("ui", "Vector Affine Transformation", None))
-        self.labelLayer.setText(_translate("ui", "Layer:", None))
-        self.groupBoxParameters.setTitle(_translate("ui", "Affine Parameters", None))
-        self.lineEditTx.setText(_translate("ui", "0", None))
-        self.lineEditC.setText(_translate("ui", "0", None))
-        self.labelB.setText(_translate("ui", "Rotation Y", None))
-        self.labelD.setText(_translate("ui", "Scale Y", None))
-        self.labelTx.setText(_translate("ui", "Translation X", None))
-        self.labelC.setText(_translate("ui", "Rotation X", None))
-        self.labelA.setText(_translate("ui", "Scale X", None))
-        self.labelTy.setText(_translate("ui", "Translation Y", None))
-        self.lineEditA.setText(_translate("ui", "1", None))
-        self.lineEditD.setText(_translate("ui", "1", None))
-        self.lineEditTy.setText(_translate("ui", "0", None))
-        self.lineEditB.setText(_translate("ui", "0", None))
-        self.radioButtonSelectedFeatures.setText(_translate("ui", "Selected Features:", None))
-        self.radioButtonWholeLayer.setText(_translate("ui", "Whole layer", None))
-        self.pushButtonRun.setText(_translate("ui", "Run", None))
-        self.pushButtonUndo.setText(_translate("ui", "Undo", None))
+        ui.setWindowTitle(QtGui.QApplication.translate("ui", "Vector Affine Transformation", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelLayer.setText(QtGui.QApplication.translate("ui", "Layer:", None, QtGui.QApplication.UnicodeUTF8))
+        self.groupBoxParameters.setTitle(QtGui.QApplication.translate("ui", "Affine Parameters", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEditTx.setText(QtGui.QApplication.translate("ui", "0", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEditC.setText(QtGui.QApplication.translate("ui", "0", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelB.setText(QtGui.QApplication.translate("ui", "Rotation Y", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelD.setText(QtGui.QApplication.translate("ui", "Scale Y", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelTx.setText(QtGui.QApplication.translate("ui", "Translation X", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelC.setText(QtGui.QApplication.translate("ui", "Rotation X", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelA.setText(QtGui.QApplication.translate("ui", "Scale X", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelTy.setText(QtGui.QApplication.translate("ui", "Translation Y", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEditA.setText(QtGui.QApplication.translate("ui", "1", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEditD.setText(QtGui.QApplication.translate("ui", "1", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEditTy.setText(QtGui.QApplication.translate("ui", "0", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEditB.setText(QtGui.QApplication.translate("ui", "0", None, QtGui.QApplication.UnicodeUTF8))
+        self.radioButtonSelectedFeatures.setText(QtGui.QApplication.translate("ui", "Selected Features:", None, QtGui.QApplication.UnicodeUTF8))
+        self.radioButtonWholeLayer.setText(QtGui.QApplication.translate("ui", "Whole layer", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButtonRun.setText(QtGui.QApplication.translate("ui", "Run", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButtonInvert.setText(QtGui.QApplication.translate("ui", "Invert", None, QtGui.QApplication.UnicodeUTF8))
 
 
 if __name__ == "__main__":

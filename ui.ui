@@ -249,7 +249,7 @@
     <string>Run</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonUndo" >
+  <widget class="QPushButton" name="pushButtonInvert" >
    <property name="geometry" >
     <rect>
      <x>170</x>
@@ -259,7 +259,7 @@
     </rect>
    </property>
    <property name="text" >
-    <string>Undo</string>
+    <string>Invert</string>
    </property>
   </widget>
  </widget>
