@@ -106,7 +106,7 @@ class qgsAffine(QDialog, Ui_ui):
     def doaffine(self):
 	warn=QgsMessageViewer()
         vlayer=self.getLayerByName(self.comboBoxLayer.currentText())
-        if (self.radioButton_2.isChecked()):
+        if (self.radioButtonWholeLayer.isChecked()):
             vlayer.removeSelection()
             vlayer.invertSelection()
         featids=vlayer.selectedFeaturesIds()
