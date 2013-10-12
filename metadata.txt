@@ -10,9 +10,9 @@
 
 [general]
 name=Affine Transformations
-qgisMinimumVersion=1.0
+qgisMinimumVersion=2.0
 description=Apply affine transformations to selected geometries.
-version=0.4.2
+version=0.5.0
 
 # end of mandatory metadata
 
