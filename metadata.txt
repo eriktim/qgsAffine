@@ -1,39 +1,25 @@
-# This file contains metadata for your plugin. Beginning
-# with version 1.8 this is the preferred way to supply information about a
-# plugin. The current method of embedding metadata in __init__.py will
-# be supported until version 2.0
-
-# This file should be included when you package your plugin.
-
-# Mandatory items:
-
-
 [general]
 name=Affine Transformations
 qgisMinimumVersion=2.0
 description=Apply affine transformations to selected geometries.
-version=0.5.0
+version=0.5.1
 
-# end of mandatory metadata
+author=Mauricio de Paulo and Erik Timmers
+email=e.timmers@gmail.com
 
-# Optional items:
+changelog=Version 0.5.1
+    * Moved repository to https://github.com/gingerik/qgsaffine
 
-# Uncomment the following line and add your changelog entries:
-changelog=Removed the auto commit as sugested and improved compliance with QGIS' metadata system.
+    Version 0.5.0
+    * Updated to QGIS 2.0
+    * Fixed inverse transform
 
-# tags are comma separated with spaces allowed
-tags=
-
-homepage=mapeandoobrasil.blogspot.com
-tracker=
-repository=
-icon=icon.png
-# experimental flag
 experimental=False
-
-# deprecated flag (applies to the whole plugin, not just a single version
 deprecated=False
+tags=
+homepage=http://plugins.qgis.org/plugins/qgsAffine
+repository=https://github.com/gingerik/qgsAffine
+tracker=https://github.com/gingerik/qgsAffine/issues
+icon=icon.png
+category=Vector
 
-# Author contact information
-author=Mauricio de Paulo
-email=mauricio.dev@gmail.com
