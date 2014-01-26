@@ -27,7 +27,7 @@ def description():
 def version():
     return "Version 0.5.0"
 def icon():
-    return "icon.png"
+    return "icon.svg"
 def qgisMinimumVersion():
     return "2.0"
 def classFactory(iface):

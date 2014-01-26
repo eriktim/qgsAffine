@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/" >
-        <file>qgsAffine.png</file>
+    <qresource prefix="/plugins/qgsAffine" >
+        <file>icon.svg</file>
     </qresource>
 </RCC>

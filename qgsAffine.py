@@ -17,7 +17,7 @@ class qgsAffine(QDialog, Ui_ui):
         
     def initGui(self):
         # create action that will start plugin configuration
-        self.action = QAction(QIcon(":qgsAffine.png"), "Affine (Rotation, Translation, Scale)", self.iface.mainWindow())
+        self.action = QAction(QIcon(":plugins/qgsAffine/icon.svg"), "Affine (Rotation, Translation, Scale)", self.iface.mainWindow())
         self.action.setWhatsThis("Configuration for test plugin")
         QObject.connect(self.action, SIGNAL("triggered()"), self.run)
     

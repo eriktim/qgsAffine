@@ -20,6 +20,6 @@ tags=
 homepage=http://plugins.qgis.org/plugins/qgsAffine
 repository=https://github.com/gingerik/qgsAffine
 tracker=https://github.com/gingerik/qgsAffine/issues
-icon=icon.png
+icon=icon.svg
 category=Vector
 
