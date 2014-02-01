@@ -2,17 +2,15 @@
 name=Affine Transformations
 qgisMinimumVersion=2.0
 description=Apply affine transformations to selected geometries.
-version=0.5.1
+version=1.0.0
 
 author=Mauricio de Paulo and Erik Timmers
 email=e.timmers@gmail.com
 
-changelog=Version 0.5.1
-    * Moved repository to https://github.com/gingerik/qgsaffine
-
-    Version 0.5.0
-    * Updated to QGIS 2.0
-    * Fixed inverse transform
+changelog=Version 1.0.0
+    * Updated UI
+    * New icon
+    * Minor fixes
 
 experimental=False
 deprecated=False

@@ -25,7 +25,7 @@ def name():
 def description():
     return "Apply affine transformations to selected geometries."
 def version():
-    return "Version 0.5.0"
+    return "Version 1.0.0"
 def icon():
     return "icon.svg"
 def qgisMinimumVersion():
@@ -34,3 +34,4 @@ def classFactory(iface):
     # load qgsAffine class from file qgsAffine
     from qgsAffine import qgsAffine
     return qgsAffine(iface)
+
