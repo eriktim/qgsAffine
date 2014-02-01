@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ui</class>
- <widget class="QDialog" name="ui" >
-  <property name="geometry" >
+ <widget class="QDialog" name="ui">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,11 +10,11 @@
     <height>255</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Vector Affine Transformation</string>
   </property>
-  <widget class="QLabel" name="labelLayer" >
-   <property name="geometry" >
+  <widget class="QLabel" name="labelLayer">
+   <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
@@ -21,12 +22,12 @@
      <height>18</height>
     </rect>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Layer:</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBoxLayer" >
-   <property name="geometry" >
+  <widget class="QComboBox" name="comboBoxLayer">
+   <property name="geometry">
     <rect>
      <x>90</x>
      <y>10</y>
@@ -35,193 +36,247 @@
     </rect>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBoxParameters" >
-   <property name="geometry" >
+  <widget class="QGroupBox" name="groupBoxParameters">
+   <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
+     <y>90</y>
      <width>321</width>
      <height>111</height>
     </rect>
    </property>
-   <property name="title" >
-    <string>Affine Parameters</string>
+   <property name="title">
+    <string>Transformation Matrix</string>
    </property>
-   <widget class="QLineEdit" name="lineEditTx" >
-    <property name="geometry" >
+   <widget class="QDoubleSpinBox" name="spinA">
+    <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>80</y>
-      <width>61</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text" >
-     <string>0</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEditC" >
-    <property name="geometry" >
-     <rect>
-      <x>90</x>
-      <y>50</y>
-      <width>61</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text" >
-     <string>0</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelB" >
-    <property name="geometry" >
-     <rect>
-      <x>170</x>
-      <y>60</y>
-      <width>61</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text" >
-     <string>Rotation Y</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelD" >
-    <property name="geometry" >
-     <rect>
-      <x>170</x>
+      <x>40</x>
       <y>30</y>
-      <width>51</width>
-      <height>20</height>
+      <width>62</width>
+      <height>33</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>Scale Y</string>
+    <property name="minimum">
+     <double>-999999.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>0.100000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.000000000000000</double>
     </property>
    </widget>
-   <widget class="QLabel" name="labelTx" >
-    <property name="geometry" >
+   <widget class="QDoubleSpinBox" name="spinD">
+    <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>72</width>
-      <height>20</height>
+      <x>140</x>
+      <y>70</y>
+      <width>62</width>
+      <height>33</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>Translation X</string>
+    <property name="minimum">
+     <double>-999999.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>0.100000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.000000000000000</double>
     </property>
    </widget>
-   <widget class="QLabel" name="labelC" >
-    <property name="geometry" >
+   <widget class="QDoubleSpinBox" name="spinC">
+    <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>61</width>
-      <height>20</height>
+      <x>40</x>
+      <y>70</y>
+      <width>62</width>
+      <height>33</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>Rotation X</string>
+    <property name="minimum">
+     <double>-999999.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>0.100000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
     </property>
    </widget>
-   <widget class="QLabel" name="labelA" >
-    <property name="geometry" >
+   <widget class="QDoubleSpinBox" name="spinB">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>62</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>-999999.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>0.100000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="spinTx">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>30</y>
+      <width>62</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>-999999.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="spinTy">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>70</y>
+      <width>62</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>-999999.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblXNew">
+    <property name="geometry">
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>51</width>
-      <height>20</height>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>Scale X</string>
+    <property name="text">
+     <string>x' =</string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelTy" >
-    <property name="geometry" >
+   <widget class="QLabel" name="lblXPlusX">
+    <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>90</y>
-      <width>72</width>
-      <height>20</height>
+      <x>110</x>
+      <y>30</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>Translation Y</string>
+    <property name="text">
+     <string>x +</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditA" >
-    <property name="geometry" >
+   <widget class="QLabel" name="lblYPlusX">
+    <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>20</y>
-      <width>61</width>
-      <height>24</height>
+      <x>210</x>
+      <y>30</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>1</string>
+    <property name="text">
+     <string>y +</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditD" >
-    <property name="geometry" >
+   <widget class="QLabel" name="lblYNew">
+    <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>20</y>
-      <width>61</width>
-      <height>24</height>
+      <x>10</x>
+      <y>70</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>1</string>
+    <property name="text">
+     <string>y' =</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditTy" >
-    <property name="geometry" >
+   <widget class="QLabel" name="lblXPlusY">
+    <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>80</y>
-      <width>61</width>
-      <height>24</height>
+      <x>110</x>
+      <y>70</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>0</string>
+    <property name="text">
+     <string>x +</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditB" >
-    <property name="geometry" >
+   <widget class="QLabel" name="lblYPlusY">
+    <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>50</y>
-      <width>61</width>
-      <height>24</height>
+      <x>210</x>
+      <y>70</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>0</string>
+    <property name="text">
+     <string>y +</string>
     </property>
    </widget>
   </widget>
-  <widget class="QRadioButton" name="radioButtonSelectedFeatures" >
-   <property name="geometry" >
+  <widget class="QRadioButton" name="radioButtonSelectedFeatures">
+   <property name="geometry">
     <rect>
      <x>10</x>
      <y>40</y>
-     <width>141</width>
+     <width>171</width>
      <height>24</height>
     </rect>
    </property>
-   <property name="text" >
-    <string>Selected Features:</string>
+   <property name="text">
+    <string>Selected features</string>
    </property>
-   <property name="checked" >
+   <property name="checked">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButtonWholeLayer" >
-   <property name="geometry" >
+  <widget class="QRadioButton" name="radioButtonWholeLayer">
+   <property name="geometry">
     <rect>
      <x>10</x>
      <y>60</y>
@@ -229,37 +284,50 @@
      <height>24</height>
     </rect>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Whole layer</string>
    </property>
-   <property name="checked" >
+   <property name="checked">
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonRun" >
-   <property name="geometry" >
+  <widget class="QPushButton" name="pushButtonRun">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>75</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Transform</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonClose">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>220</y>
+     <width>75</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonInvert">
+   <property name="geometry">
     <rect>
      <x>90</x>
      <y>220</y>
-     <width>75</width>
+     <width>101</width>
      <height>28</height>
     </rect>
    </property>
-   <property name="text" >
-    <string>Run</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonInvert" >
-   <property name="geometry" >
-    <rect>
-     <x>170</x>
-     <y>220</y>
-     <width>75</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text" >
-    <string>Invert</string>
+   <property name="text">
+    <string>Invert Matrix</string>
    </property>
   </widget>
  </widget>
@@ -267,12 +335,6 @@
   <tabstop>comboBoxLayer</tabstop>
   <tabstop>radioButtonSelectedFeatures</tabstop>
   <tabstop>radioButtonWholeLayer</tabstop>
-  <tabstop>lineEditA</tabstop>
-  <tabstop>lineEditC</tabstop>
-  <tabstop>lineEditTx</tabstop>
-  <tabstop>lineEditD</tabstop>
-  <tabstop>lineEditB</tabstop>
-  <tabstop>lineEditTy</tabstop>
  </tabstops>
  <resources/>
  <connections/>

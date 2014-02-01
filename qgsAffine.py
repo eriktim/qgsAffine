@@ -37,6 +37,7 @@ class qgsAffine(QDialog, Ui_ui):
         #INSERT EVERY SIGNAL CONECTION HERE!
         QObject.connect(self.pushButtonRun,SIGNAL("clicked()"),self.affine)
         QObject.connect(self.pushButtonInvert,SIGNAL("clicked()"),self.invert)
+        QObject.connect(self.pushButtonClose,SIGNAL("clicked()"),self.finish)
 
 
     def unload(self):
@@ -70,44 +71,47 @@ class qgsAffine(QDialog, Ui_ui):
         for (name,layer) in layersmap.iteritems():
             if (layername==layer.name()):
                 return layer
+    def setaffine(self):
+        self.a=self.spinA.value()
+        self.b=self.spinB.value()
+        self.tx=self.spinTx.value()
+        self.c=self.spinC.value()
+        self.d=self.spinD.value()
+        self.ty=self.spinTy.value()
+
     #Now these are the SLOTS
     def affine(self):
-        self.a=float(self.lineEditA.text())
-        self.b=float(self.lineEditB.text())
-        self.tx=float(self.lineEditTx.text())
-        self.c=float(self.lineEditC.text())
-        self.d=float(self.lineEditD.text())
-        self.ty=float(self.lineEditTy.text())
+        self.setaffine()
         self.doaffine()
         
     def invert(self):
-        try:
-            # matrix form: x' = A x + b
-            # --> x = A^-1 x' - A^-1 b
-            # A^-1 = [d -b; -c a] / det A
-            # only valid if det A = a d - b c != 0
-            det = self.a*self.d - self.b*self.c
-            if det == 0:
-                warn=QgsMessageViewer()
-                warn.setMessageAsPlainText("Transformation is not invertable.")
-                warn.showMessage()
-                return
-            a=self.d/det
-            b=-self.b/det
-            c=-self.c/det
-            d=self.a/det
-            tx=-a*self.tx-b*self.ty
-            ty=-c*self.tx-d*self.ty
-            self.lineEditA.setText(str(a))
-            self.lineEditB.setText(str(b))
-            self.lineEditC.setText(str(c))
-            self.lineEditD.setText(str(d))
-            self.lineEditTx.setText(str(tx))
-            self.lineEditTy.setText(str(ty))
-            self.affine()
-            #print "ok"
-        except:
-            print "Nothing to invert"
+        # matrix form: x' = A x + b
+        # --> x = A^-1 x' - A^-1 b
+        # A^-1 = [d -b; -c a] / det A
+        # only valid if det A = a d - b c != 0
+        self.setaffine()
+        det = self.a*self.d - self.b*self.c
+        if det == 0:
+            warn=QgsMessageViewer()
+            warn.setMessageAsPlainText("Transformation is not invertable.")
+            warn.showMessage()
+            return
+        a=self.d/det
+        b=-self.b/det
+        c=-self.c/det
+        d=self.a/det
+        tx=-a*self.tx-b*self.ty
+        ty=-c*self.tx-d*self.ty
+        self.spinA.setValue(a)
+        self.spinB.setValue(b)
+        self.spinC.setValue(c)
+        self.spinD.setValue(d)
+        self.spinTx.setValue(tx)
+        self.spinTy.setValue(ty)
+        self.setaffine()
+
+    def finish(self):
+        self.close()
     
     def doaffine(self):
 	warn=QgsMessageViewer()
