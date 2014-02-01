@@ -119,6 +119,10 @@ class qgsAffine(QDialog, Ui_ui):
         if (self.radioButtonWholeLayer.isChecked()):
             vlayer.removeSelection()
             vlayer.invertSelection()
+        if vlayer is None:
+	    warn.setMessageAsPlainText("Select a layer to transform.")
+	    warn.showMessage()
+            return
         featids=vlayer.selectedFeaturesIds()
         provider=vlayer.dataProvider()
         result={}
