@@ -1,0 +1,3 @@
+build/
+qgsAffine/resources.py
+qgsAffine/ui.py
