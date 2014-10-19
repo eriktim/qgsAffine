@@ -1,3 +1,4 @@
 build/
+*.zip
 qgsAffine/resources.py
 qgsAffine/ui.py
