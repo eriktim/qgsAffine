@@ -17,6 +17,12 @@ build_ui:
 zip: build
 	zip -qr qgsAffine-$(VERSION).zip qgsAffine
 
+lint:
+	pylint --errors-only qgsAffine/
+
+test: lint
+	@:
+
 clean:
 	rm -f *.zip
 	rm -f qgsAffine/resources.py
