@@ -9,7 +9,7 @@ before_install:
 
 install:
  - sudo apt-get install -qq libgdal1h
- - sudo apt-get install -qq python-qt4 python-qgis python-pip
+ - sudo apt-get install -qq python-qt4-dev python-qgis python-pip
  - sudo apt-get install -qq pyqt4-dev-tools
  - pip install pylint
 
