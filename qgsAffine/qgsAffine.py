@@ -5,8 +5,6 @@ QGIS Affine plugin
 from PyQt4.QtGui import QAction
 from PyQt4.QtGui import QDialog
 from PyQt4.QtGui import QIcon
-from PyQt4.QtCore import QObject
-from PyQt4.QtCore import Qt
 from PyQt4.QtCore import SIGNAL
 
 from qgis.core import QgsFeature
@@ -16,7 +14,6 @@ from qgis.core import QgsPoint
 from qgis.gui import QgsMessageViewer
 
 from ui import Ui_ui
-import resources
 
 class qgsAffine(QDialog, Ui_ui):
     """Affine transformation class"""
@@ -26,6 +23,13 @@ class qgsAffine(QDialog, Ui_ui):
         self.iface = iface
         QDialog.__init__(self, iface.mainWindow())
         self.setupUi(self)
+        self.a = 1
+        self.b = 0
+        self.c = 0
+        self.d = 1
+        self.tx = 0
+        self.ty = 0
+        self.action = None
 
     def initGui(self):
         """Initialize the GUI"""
@@ -34,8 +38,7 @@ class qgsAffine(QDialog, Ui_ui):
         self.action = QAction(
                 QIcon(":plugins/qgsAffine/icon.svg"),
                 "Affine (Rotation, Translation, Scale)",
-                self.iface.mainWindow()
-                )
+                self.iface.mainWindow())
         self.action.setWhatsThis("Configuration for test plugin")
         self.action.connect(self.action, SIGNAL("triggered()"), self.run)
 
@@ -49,17 +52,19 @@ class qgsAffine(QDialog, Ui_ui):
         if hasattr(self.iface, "addPluginToVectorMenu"):
             self.iface.addPluginToVectorMenu(
                     "&Geoprocessing Tools",
-                    self.action
-                    )
+                    self.action)
         else:
             self.iface.addPluginToMenu("&Geoprocessing Tools", self.action)
 
         # INSERT EVERY SIGNAL CONECTION HERE!
-        self.pushButtonRun.connect(self.pushButtonRun,
+        self.pushButtonRun.connect(
+                self.pushButtonRun,
                 SIGNAL("clicked()"), self.affine)
-        self.pushButtonInvert.connect(self.pushButtonInvert,
+        self.pushButtonInvert.connect(
+                self.pushButtonInvert,
                 SIGNAL("clicked()"), self.invert)
-        self.pushButtonClose.connect(self.pushButtonClose,
+        self.pushButtonClose.connect(
+                self.pushButtonClose,
                 SIGNAL("clicked()"), self.finish)
 
 
@@ -76,8 +81,6 @@ class qgsAffine(QDialog, Ui_ui):
 
     def run(self):
         """Create and show a configuration dialog or something similar"""
-        flags = Qt.WindowTitleHint | Qt.WindowSystemMenuHint | \
-                Qt.WindowMaximizeButtonHint # QgisGui.ModalDialogFlags
         self.comboBoxLayer.clear()
         for item in self.listlayers(0):
             self.comboBoxLayer.addItem(item)
@@ -85,19 +88,19 @@ class qgsAffine(QDialog, Ui_ui):
         self.show()
 
     def listlayers(self, layertype):
-        """Get a list a all layers"""
+        """Get a list of all layers"""
         layersmap = QgsMapLayerRegistry.instance().mapLayers()
         layerslist = []
         for (name, layer) in layersmap.iteritems():
             if layertype == layer.type():
-                layerslist.append(layer.name())
+                layerslist.append(name)
         return layerslist
 
     def getLayerByName(self, layername):
         """Get a layer by its name"""
         layersmap = QgsMapLayerRegistry.instance().mapLayers()
         for (name, layer) in layersmap.iteritems():
-            if layername == layer.name():
+            if layername == name:
                 return layer
 
     def setaffine(self):
@@ -157,7 +160,6 @@ class qgsAffine(QDialog, Ui_ui):
             warn.showMessage()
             return
         featids = vlayer.selectedFeaturesIds()
-        provider = vlayer.dataProvider()
         result = {}
         features = {}
         if vlayer.geometryType() == 2:

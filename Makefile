@@ -18,7 +18,7 @@ zip: build
 	zip -qr qgsAffine-$(VERSION).zip qgsAffine
 
 lint:
-	pylint --errors-only qgsAffine/
+	pylint --rcfile=.pylintrc qgsAffine/
 
 test: lint
 	@:

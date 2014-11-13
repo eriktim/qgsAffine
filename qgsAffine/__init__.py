@@ -20,18 +20,30 @@
  ***************************************************************************/
  This script initializes the plugin, making it known to QGIS.
 """
+
 def name():
+    """Plugin name"""
     return "qgsAffine"
+
 def description():
+    """Plugin description"""
     return "Apply affine transformations to selected geometries."
+
 def version():
+    """Plugin version"""
     return "Version 1.0.1"
+
 def icon():
+    """Plugin icon"""
     return "icon.svg"
+
 def qgisMinimumVersion():
+    """Minium QGIS version required for plugin"""
     return "2.0"
+
 def classFactory(iface):
+    """Factory for creating objects from the plugin class"""
     # load qgsAffine class from file qgsAffine
-    from qgsAffine import qgsAffine
+    from qgsAffine.qgsAffine import qgsAffine
     return qgsAffine(iface)
 
