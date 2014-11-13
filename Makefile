@@ -17,8 +17,8 @@ build_ui:
 zip: build
 	zip -qr qgsAffine-$(VERSION).zip qgsAffine
 
-lint:
-	pylint --rcfile=.pylintrc qgsAffine/
+lint: build
+	pylint --ignore=resources.py,ui.py --rcfile=.pylintrc qgsAffine/
 
 test:
 	@:

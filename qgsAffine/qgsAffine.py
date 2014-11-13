@@ -13,7 +13,7 @@ from qgis.core import QgsMapLayerRegistry
 from qgis.core import QgsPoint
 from qgis.gui import QgsMessageViewer
 
-from ui import Ui_ui
+from .ui import Ui_ui
 
 class qgsAffine(QDialog, Ui_ui):
     """Affine transformation class"""
