@@ -20,7 +20,10 @@ zip: build
 lint:
 	pylint --rcfile=.pylintrc qgsAffine/
 
-test: lint
+test:
+	@:
+
+ci: lint test
 	@:
 
 clean:
