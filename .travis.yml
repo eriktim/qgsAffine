@@ -9,7 +9,8 @@ before_install:
 
 install:
  - sudo apt-get install -qq libgdal1h
- - sudo apt-get install -y python-qt4 python-qgis pylint
+ - sudo apt-get install -y python-qt4 python-qgis python-pip
+ - pip install pylint
 
 script:
   - make ci
