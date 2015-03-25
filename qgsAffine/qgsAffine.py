@@ -21,18 +21,11 @@ class qgsAffine(QDialog, Ui_ui):
         self.action.setWhatsThis("Configuration for test plugin")
         QObject.connect(self.action, SIGNAL("triggered()"), self.run)
 
-        # add toolbar button and menu item
+        # add toolbar button
         self.iface.addToolBarIcon(self.action)
 
-        #add to Vector menu
-        nextAction = self.iface.mainWindow().menuBar().actions()[3].menu().actions()[3]
-        self.iface.mainWindow().menuBar().actions()[3].menu().insertAction(nextAction,self.action)
-        if hasattr(self.iface, "addPluginToVectorMenu"):
-            self.iface.addPluginToVectorMenu("&Geoprocessing Tools", self.action)
-        else:
-            self.iface.addPluginToMenu("&Geoprocessing Tools", self.action)
-        #self.action.setEnabled(False)
-
+        # add to Vector menu
+        self.iface.addPluginToVectorMenu("&Geoprocessing Tools", self.action)
 
         #INSERT EVERY SIGNAL CONECTION HERE!
         QObject.connect(self.pushButtonRun,SIGNAL("clicked()"),self.affine)
@@ -41,11 +34,8 @@ class qgsAffine(QDialog, Ui_ui):
 
 
     def unload(self):
-        # remove the plugin menu item and icon
-        if hasattr(self.iface, "addPluginToVectorMenu"):
-            self.iface.removePluginVectorMenu("&Geoprocessing Tools", self.action)
-        else:
-            self.iface.removePluginMenu("&Geoprocessing Tools", self.action)
+        # remove from Vector menu and toolbar
+        self.iface.removePluginVectorMenu("&Geoprocessing Tools", self.action)
         self.iface.removeToolBarIcon(self.action)
 
 
