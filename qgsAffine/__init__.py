@@ -5,9 +5,9 @@
                                  A QGIS plugin
  Apply affine transformations to selected geometries.
                              -------------------
-        begin                : 2012-07-12
-        copyright            : (C) 2012 by Mauricio de Paulo
-        email                : mauricio.dev@gmail.com
+        begin                : 2012-07-12 by Mauricio de Paulo
+        copyright            : (C) 2015 by Erik Timmers
+        email                : e.timmers@gmail.com
  ***************************************************************************/
 
 /***************************************************************************
