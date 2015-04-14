@@ -25,7 +25,7 @@ def name():
 def description():
     return "Apply affine transformations to selected geometries."
 def version():
-    return "Version 1.0.1"
+    return "Version 1.0.2"
 def icon():
     return "icon.svg"
 def qgisMinimumVersion():

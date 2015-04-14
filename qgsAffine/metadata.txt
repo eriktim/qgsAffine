@@ -2,15 +2,24 @@
 name=Affine Transformations
 qgisMinimumVersion=2.0
 description=Apply affine transformations to selected geometries.
-version=1.0.1
+version=1.0.2
 
 author=Mauricio de Paulo and Erik Timmers
 email=e.timmers@gmail.com
 
-changelog=Version 1.0.1
+changelog=Version 1.0.2
+    * Remove plugin from Layer menu (thanks @geodrinx)
+    * New (simplified) icon
+    
+    Version 1.0.1
     [ chk1 ]
     * Increase parameter precision
     * Dynamically resize UI
+    
+    Version 1.0.0
+    * Updated UI
+    * New icon
+    * Minor fixes
 
 experimental=False
 deprecated=False
